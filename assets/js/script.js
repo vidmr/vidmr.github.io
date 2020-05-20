@@ -137,6 +137,12 @@
 		$('.lightbox-image').fancybox({
 			openEffect  : 'fade',
 			closeEffect : 'fade',
+            iframe : {
+                css : {
+                    width : '640px',
+					height : '460px'
+                }
+            },
 			helpers : {
 				media : {}
 			}
