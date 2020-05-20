@@ -139,8 +139,8 @@
 			closeEffect : 'fade',
             iframe : {
                 css : {
-                    width : '640px',
-					height : '460px'
+                    width : getIframeWidth(),
+					height : getIframeHeight()
                 }
             },
 			helpers : {
@@ -148,6 +148,41 @@
 			}
 		});
 	}
+
+    function getIframeWidth(){
+		var width = 640;
+        if(isMobile()){
+            width = window.innerWidth;
+        }
+        console.log("width", width);
+        return (width+'px');
+    }
+
+    function getIframeHeight(){
+        var height = 360;
+        if(isMobile()){
+            height = window.innerWidth*9/16;
+        }
+        console.log("height", height);
+        return (height+'px');
+    }
+
+	// check if mobile device
+    function isMobile() {
+        if (navigator.userAgent.match(/Android/i)
+            || navigator.userAgent.match(/webOS/i)
+            || navigator.userAgent.match(/iPhone/i)
+            || navigator.userAgent.match(/iPad/i)
+            || navigator.userAgent.match(/iPod/i)
+            || navigator.userAgent.match(/BlackBerry/i)
+            || navigator.userAgent.match(/Windows Phone/i)
+        ) {
+            return true;
+        }
+        else {
+            return false;
+        }
+    }
 
 
 	//Tabs Box
